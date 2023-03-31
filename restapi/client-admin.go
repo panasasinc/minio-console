@@ -155,7 +155,7 @@ type AdminClient struct {
 }
 
 func (ac AdminClient) changePassword(ctx context.Context, accessKey, secretKey string) error {
-	return ac.Client.SetUser(ctx, accessKey, secretKey, madmin.AccountEnabled)
+	return ac.Client.SetUser(ctx, accessKey, secretKey, "", "", madmin.AccountEnabled)
 }
 
 // implements madmin.ListUsers()
@@ -165,7 +165,7 @@ func (ac AdminClient) listUsers(ctx context.Context) (map[string]madmin.UserInfo
 
 // implements madmin.AddUser()
 func (ac AdminClient) addUser(ctx context.Context, accessKey, secretKey string) error {
-	return ac.Client.AddUser(ctx, accessKey, secretKey)
+	return ac.Client.AddUser(ctx, accessKey, secretKey, "", "")
 }
 
 // implements madmin.RemoveUser()
